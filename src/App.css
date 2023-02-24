@@ -34,8 +34,29 @@
   cursor: pointer;
 }
 
+.keyboard__letter--correct {
+  background-color: rgb(97, 255, 97);
+}
+
+.keyboard__letter--correct:hover {
+  background-color: rgb(97, 255, 97);
+  color: black;
+  cursor: default;
+}
+
+.keyboard__letter--incorrect {
+  background-color: rgb(187, 187, 187);
+}
+
+.keyboard__letter--incorrect:hover {
+  background-color: rgb(187, 187, 187);
+  color: black;
+  cursor: default;
+}
+
 .word__letter {
   font-size: 2rem;
+  padding-inline: 0.5rem;
   margin-inline: 0.5rem;
   font-weight: 700;
   border-bottom: 1px solid black;
