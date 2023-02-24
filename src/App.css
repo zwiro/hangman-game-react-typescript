@@ -33,3 +33,10 @@
   color: white;
   cursor: pointer;
 }
+
+.word__letter {
+  font-size: 2rem;
+  margin-inline: 0.5rem;
+  font-weight: 700;
+  border-bottom: 1px solid black;
+}
