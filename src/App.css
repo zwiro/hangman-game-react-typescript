@@ -40,3 +40,97 @@
   font-weight: 700;
   border-bottom: 1px solid black;
 }
+
+.hangman {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 200px;
+  height: 300px;
+}
+
+.hangman__ground,
+.hangman__pole,
+.hangman__rod,
+.hangman__grip,
+.hangman__head,
+.hangman__body,
+.hangman__left-hand,
+.hangman__right-hand,
+.hangman__left-leg,
+.hangman__right-leg {
+  position: absolute;
+  background-color: black;
+}
+
+.hangman__ground {
+  bottom: 0;
+  width: 80%;
+  height: 5px;
+}
+
+.hangman__pole {
+  width: 5px;
+  height: 100%;
+  bottom: 0;
+}
+
+.hangman__rod {
+  height: 5px;
+  width: 50%;
+  top: 0;
+  left: 50%;
+}
+
+.hangman__grip {
+  width: 5px;
+  height: 10%;
+  top: 0;
+  right: 0;
+}
+
+.hangman__head {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: 5px solid black;
+  border-radius: 100%;
+  top: 10%;
+  right: 0;
+  transform: translateX(45%);
+}
+
+.hangman__body {
+  width: 5px;
+  height: 30%;
+  right: 0;
+  top: calc(10% + 60px);
+}
+
+.hangman__left-hand,
+.hangman__right-hand {
+  width: 5px;
+  height: 20%;
+  rotate: -60deg;
+  right: 0;
+  top: 20%;
+  transform-origin: bottom;
+}
+
+.hangman__right-hand {
+  rotate: 60deg;
+}
+
+.hangman__left-leg,
+.hangman__right-leg {
+  width: 5px;
+  height: 20%;
+  rotate: 40deg;
+  transform-origin: top;
+  right: 0;
+  top: 180px;
+}
+
+.hangman__right-leg {
+  rotate: -40deg;
+}
