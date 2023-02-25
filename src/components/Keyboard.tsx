@@ -1,3 +1,5 @@
+import { useEffect } from "react"
+
 type KeyboardProps = {
   guessLetter: (letter: string) => void
   guessedLetters: string[]
@@ -33,6 +35,20 @@ function Keyboard({ guessLetter, guessedLetters, word }: KeyboardProps) {
     "Y",
     "Z",
   ]
+
+  function handleKeyDown(e: KeyboardEvent) {
+    const letter = e.key.toUpperCase()
+    if (letters.includes(letter)) {
+      guessLetter(letter)
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown)
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [])
 
   return (
     <div

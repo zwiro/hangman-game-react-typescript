@@ -36,7 +36,7 @@ function App() {
     if (isHangmanFull || isWordGuessed) {
       setIsGameOver(true)
     }
-  })
+  }, [guessedLetters])
 
   return (
     <main className="game">
