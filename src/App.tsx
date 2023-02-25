@@ -13,10 +13,12 @@ function App() {
   const [isGameOver, setIsGameOver] = useState(false)
 
   function guessLetter(letter: string) {
-    if (guessedLetters.includes(letter.toUpperCase())) {
-      return
+    if (!isGameOver) {
+      if (guessedLetters.includes(letter.toUpperCase())) {
+        return
+      }
+      setGuessedLetters((prevLetters) => [...prevLetters, letter])
     }
-    setGuessedLetters((prevLetters) => [...prevLetters, letter])
   }
 
   useEffect(() => {
@@ -49,6 +51,11 @@ function App() {
         guessedLetters={guessedLetters}
         word={word}
       />
+      {isGameOver && (
+        <button className="game__retry" onClick={() => location.reload()}>
+          Try again
+        </button>
+      )}
     </main>
   )
 }

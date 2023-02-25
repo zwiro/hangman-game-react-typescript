@@ -1,14 +1,30 @@
 .game {
   max-width: 800px;
+  height: 90vh;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin: 0 auto;
   align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  gap: 2rem;
 }
 
 .game__result {
   font-size: 2rem;
+}
+
+.game__retry {
+  padding-block: 1rem;
+  padding-inline: 2rem;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 100ms ease-in-out;
+}
+
+.game__retry:hover {
+  background-color: black;
+  color: white;
 }
 
 .keyboard {
