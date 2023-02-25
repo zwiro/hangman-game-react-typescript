@@ -12,6 +12,17 @@ function App() {
   const [guessedLetters, setGuessedLetters] = useState<string[]>([])
   const [isGameOver, setIsGameOver] = useState(false)
 
+  const isHangmanFull = Boolean(
+    guessedLetters.filter(
+      (letter) => !word.split("").includes(letter.toLowerCase())
+    ).length > 5
+  )
+  const isWordGuessed = Boolean(
+    word
+      .split("")
+      .every((letter) => guessedLetters.includes(letter.toUpperCase()))
+  )
+
   function guessLetter(letter: string) {
     if (!isGameOver) {
       if (guessedLetters.includes(letter.toUpperCase())) {
@@ -22,14 +33,7 @@ function App() {
   }
 
   useEffect(() => {
-    if (
-      guessedLetters.filter(
-        (letter) => !word.split("").includes(letter.toLowerCase())
-      ).length > 5 ||
-      word
-        .split("")
-        .every((letter) => guessedLetters.includes(letter.toUpperCase()))
-    ) {
+    if (isHangmanFull || isWordGuessed) {
       setIsGameOver(true)
     }
   })
@@ -38,9 +42,7 @@ function App() {
     <main className="game">
       <p className="game__result">
         {isGameOver &&
-          (word
-            .split("")
-            .every((letter) => guessedLetters.includes(letter.toUpperCase()))
+          (isWordGuessed
             ? "You won!"
             : `You lost! The correct word was ${word.toUpperCase()}.`)}
       </p>
