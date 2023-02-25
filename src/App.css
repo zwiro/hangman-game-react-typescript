@@ -54,12 +54,28 @@
   cursor: default;
 }
 
+.word__letters {
+  display: flex;
+  gap: 0.5rem;
+  height: 2.5rem;
+  width: 200px;
+}
+
+.word__placeholder {
+  height: 100%;
+  width: 100%;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
 .word__letter {
   font-size: 2rem;
-  padding-inline: 0.5rem;
-  margin-inline: 0.5rem;
   font-weight: 700;
-  border-bottom: 1px solid black;
+  display: none;
+}
+
+.word__letter--revealed {
+  display: inline;
 }
 
 .hangman {

@@ -6,16 +6,19 @@ type WordProps = {
 }
 
 function Word({ word, guessedLetters }: WordProps) {
-  console.log(word, word[0], guessedLetters[0])
-  console.log(0 === word.split("").indexOf(guessedLetters[0]?.toLowerCase()))
   return (
-    <div>
+    <div className="word__letters">
       {word.split("").map((letter, i) => (
-        <span key={`${letter}-${i}`} className="word__letter">
-          {guessedLetters.map((item) =>
-            i === word.split("").indexOf(item.toLowerCase()) ? item : " "
-          )}
-        </span>
+        <div className="word__placeholder" key={`${letter}-${i}`}>
+          <span
+            className={`word__letter ${
+              guessedLetters.includes(letter.toUpperCase()) &&
+              "word__letter--revealed"
+            }`}
+          >
+            {letter.toUpperCase()}
+          </span>
+        </div>
       ))}
     </div>
   )
