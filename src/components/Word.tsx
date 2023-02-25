@@ -1,5 +1,3 @@
-import { useState } from "react"
-
 type WordProps = {
   word: string
   guessedLetters: string[]

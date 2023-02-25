@@ -1,7 +1,21 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-function Hangman() {
+type HangmanProps = {
+  word: string
+  guessedLetters: string[]
+}
+
+function Hangman({ word, guessedLetters }: HangmanProps) {
   const [wrongLetters, setWrongLetters] = useState<string[]>([])
+
+  useEffect(() => {
+    setWrongLetters(
+      guessedLetters.filter(
+        (letter) => !word.split("").includes(letter.toLowerCase())
+      )
+    )
+  }, [guessedLetters])
+
   return (
     <div className="hangman">
       <div className="hangman__ground" />

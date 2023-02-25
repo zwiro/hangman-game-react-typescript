@@ -12,16 +12,18 @@ function App() {
   const [guessedLetters, setGuessedLetters] = useState<string[]>([])
 
   function guessLetter(letter: string) {
-    if (guessedLetters.includes(letter)) {
+    if (guessedLetters.includes(letter.toUpperCase())) {
       return
     }
     setGuessedLetters((prevLetters) => [...prevLetters, letter])
   }
 
+  console.log(word)
+
   return (
     <main className="game">
       <p className="game__result">You won!</p>
-      <Hangman />
+      <Hangman word={word} guessedLetters={guessedLetters} />
       <Word word={word} guessedLetters={guessedLetters} />
       <Keyboard
         guessLetter={guessLetter}
